@@ -41,26 +41,20 @@ function draw() {
 }
 
 function snowflake() {
-    // initialize coordinates
     this.posX = 0;
     this.posY = random(600, 0);
     this.initialangle = random(0, 2 * PI);
     this.size = random(2, 5);
 
-    // radius of snowflake spiral
-    // chosen so the snowflakes are uniformly spread out in area
     this.radius = sqrt(random(pow(width / 2, 2)));
 
     this.update = function (time) {
-        // x position follows a circle
         let w = 0.3; // angular speed
         let angle = w * time + this.initialangle;
         this.posX = width / 2 + this.radius * sin(angle);
 
-        // different size snowflakes fall at slightly different y speeds
         this.posY += pow(this.size, 0.5);
-
-        // delete snowflake if past end of screen
+        
         if (this.posY > height) {
             let index = snowflakes.indexOf(this);
             snowflakes.splice(index, 1);
@@ -71,14 +65,6 @@ function snowflake() {
         ellipse(this.posX, this.posY, this.size);
     };
 }
-
-// function mousePressed() {
-//     this.p = new ParticleSystem(createVector(mouseX, mouseY));
-//     systems.push(p);
-//     if (audio.paused) {
-//         audio.play();
-//     }
-// }
 
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
