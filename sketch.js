@@ -55,6 +55,12 @@ function keyPressed() {
         this.p = new ParticleSystem(createVector(x, y));
         systems.push(p);
         console.log(`Added particle at {${x}, ${y}}`);
+    } else if (keyCode === 32) {
+        if (audio.paused) {
+            audio.play();
+        } else {
+            audio.pause(); 
+        }
     }
 }
 

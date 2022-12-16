@@ -1,3 +1,34 @@
 /* audio {
     display: none;
 } */
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    background-color: #bcdce8;
+    font-family: 'Noto Serif JP', serif;
+    color: #6B728E;
+}
+
+div#title {
+    font-size: 48px;
+    text-align: center;
+}
+
+div#title h1 {
+    font-weight: normal;
+}
+
+div#controls {
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+div#credit {
+    text-align: end;
+    font-size: 24px;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #6B728E70;
+}
