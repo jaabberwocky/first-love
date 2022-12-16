@@ -32,7 +32,7 @@ function draw() {
         textSize(32);
         text("初恋", width / 2, height / 4);
     }
-    
+
     // loop through snowflakes with a for..of loop
     for (let flake of snowflakes) {
         flake.update(t); // update snowflake position
@@ -54,7 +54,7 @@ function snowflake() {
         this.posX = width / 2 + this.radius * sin(angle);
 
         this.posY += pow(this.size, 0.5);
-        
+
         if (this.posY > height) {
             let index = snowflakes.indexOf(this);
             snowflakes.splice(index, 1);
@@ -74,7 +74,7 @@ function keyPressed() {
         }
     } else if (keyCode === RIGHT_ARROW) {
         for (let i = 0; i < random(250); i++) {
-            snowflakes.push(new snowflake()); 
+            snowflakes.push(new snowflake());
         }
     } else if (keyCode === 32) {
         if (audio.paused) {
