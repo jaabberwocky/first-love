@@ -5,6 +5,8 @@ let frame = 0;
 let height = 600;
 let snowflakes = [];
 
+const SNOW_THRESHOLD = 50;
+
 function preload() {
     img = loadImage('static/hands.png');
 }
@@ -25,7 +27,7 @@ function draw() {
     image(img, width / 2, height / 2 - 100);
     let t = frameCount / 60; // update time
 
-    if (snowflakes.length > 50) {
+    if (snowflakes.length > SNOW_THRESHOLD) {
         snowflakes.push(new snowflake());
     } else if (snowflakes.length === 0) {
         textAlign(CENTER);
