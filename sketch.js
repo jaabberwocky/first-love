@@ -33,10 +33,9 @@ function draw() {
         text("初恋", width / 2, height / 4);
     }
 
-    // loop through snowflakes with a for..of loop
     for (let flake of snowflakes) {
-        flake.update(t); // update snowflake position
-        flake.display(); // draw snowflake
+        flake.update(t);
+        flake.display();
     }
 }
 
