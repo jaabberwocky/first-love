@@ -25,9 +25,9 @@ function draw() {
     image(img, width / 2, height / 2 - 100);
     let t = frameCount / 60; // update time
 
-    if (snowflakes.length > 0) {
+    if (snowflakes.length > 50) {
         snowflakes.push(new snowflake());
-    } else {
+    } else if (snowflakes.length === 0) {
         textAlign(CENTER);
         textSize(32);
         text("初恋", width / 2, height / 4);
