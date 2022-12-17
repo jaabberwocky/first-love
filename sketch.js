@@ -82,6 +82,7 @@ function mousePressed() {
 
     if (initialPlay) {
         audio.play();
+        initialPlay = !initialPlay;
     }
 }
 
