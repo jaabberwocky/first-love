@@ -7,6 +7,12 @@ body {
     color: #6B728E;
 }
 
+div#audio-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom:50px;
+}
+
 div#title {
     font-size: 48px;
     text-align: center;
@@ -24,6 +30,7 @@ div#controls {
 
 div#credit {
     text-align: end;
+    margin-right: 50px;
     font-size: 24px;
     font-family: 'Noto Sans JP', sans-serif;
     color: #6B728E70;
