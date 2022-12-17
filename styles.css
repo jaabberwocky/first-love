@@ -2,7 +2,8 @@ body {
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    background-color: #bcdce8;
+    background: rgb(218,213,225);
+    background: radial-gradient(circle, rgba(218,213,225,1) 0%, rgba(190,223,234,1) 100%);
     font-family: 'Noto Serif JP', serif;
     color: #6B728E;
 }
