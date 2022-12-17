@@ -36,7 +36,7 @@ function draw() {
     let t = frameCount / 60; // update time
 
     if (snowflakes.length > SNOW_THRESHOLD) {
-        snowflakes.push(new snowflake());
+        snowflakes.push(new Snowflake());
     } else if (snowflakes.length === 0) {
         textAlign(CENTER);
         textSize(32);
@@ -49,15 +49,17 @@ function draw() {
     }
 }
 
-function snowflake() {
-    this.posX = 0;
-    this.posY = random(600, 0);
-    this.initialangle = random(0, 2 * PI);
-    this.size = random(2, 18);
+class Snowflake {
+    constructor() {
+        this.posX = 0;
+        this.posY = random(600, 0);
+        this.initialangle = random(0, 2 * PI);
+        this.size = random(2, 18);
 
-    this.radius = sqrt(random(pow(width / 2, 2)));
+        this.radius = sqrt(random(pow(width / 2, 2)));
+    }
 
-    this.update = function (time) {
+    update(time) {
         let w = 0.3; // angular speed
         let angle = w * time + this.initialangle;
         this.posX = width / 2 + this.radius * sin(angle);
@@ -68,16 +70,16 @@ function snowflake() {
             let index = snowflakes.indexOf(this);
             snowflakes.splice(index, 1);
         }
-    };
+    }
 
-    this.display = function () {
+    display = function () {
         ellipse(this.posX, this.posY, this.size);
     };
 }
 
 function mousePressed() {
     for (let i = 0; i < random(250); i++) {
-        snowflakes.push(new snowflake());
+        snowflakes.push(new Snowflake());
     }
 
     if (initialPlay) {
@@ -94,7 +96,7 @@ function keyPressed() {
         }
     } else if (keyCode === RIGHT_ARROW) {
         for (let i = 0; i < random(250); i++) {
-            snowflakes.push(new snowflake());
+            snowflakes.push(new Snowflake());
         }
     } else if (keyCode === 32) {
         if (audio.paused) {
