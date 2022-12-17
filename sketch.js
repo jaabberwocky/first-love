@@ -74,6 +74,12 @@ function snowflake() {
     };
 }
 
+function mousePressed() {
+    for (let i = 0; i < random(250); i++) {
+        snowflakes.push(new snowflake());
+    }
+}
+
 function keyPressed() {
     if (keyCode === LEFT_ARROW) {
         for (let i = 0; i < random(50); i++) {
