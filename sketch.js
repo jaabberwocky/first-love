@@ -29,8 +29,7 @@ function setup() {
 }
 
 function draw() {
-    background(51);
-    background(0);
+    background("#bedfea");
     imageMode(CENTER);
     image(img, width / 2, height / 2 - 100);
     let t = frameCount / 60; // update time
@@ -53,7 +52,7 @@ function snowflake() {
     this.posX = 0;
     this.posY = random(600, 0);
     this.initialangle = random(0, 2 * PI);
-    this.size = random(2, 5);
+    this.size = random(2, 18);
 
     this.radius = sqrt(random(pow(width / 2, 2)));
 
