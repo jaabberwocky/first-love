@@ -16,6 +16,7 @@ function preload() {
 function setup() {
     width = document.getElementById('canvasbox').offsetWidth;
     audio = document.getElementById("song");
+    audio.currentTime = 41;
     createCanvas(width, height);
 
     // prevent keyboard from scrolling
@@ -78,6 +79,10 @@ function mousePressed() {
     for (let i = 0; i < random(250); i++) {
         snowflakes.push(new snowflake());
     }
+
+    if (initialPlay) {
+        audio.play();
+    }
 }
 
 function keyPressed() {
@@ -91,11 +96,7 @@ function keyPressed() {
             snowflakes.push(new snowflake());
         }
     } else if (keyCode === 32) {
-        if (initialPlay) {
-            audio.currentTime=41;
-            audio.play();
-            initialPlay = !initialPlay;
-        } else if (audio.paused) {
+        if (audio.paused) {
             audio.play();
         } else {
             audio.pause();
