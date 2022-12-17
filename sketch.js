@@ -3,6 +3,7 @@ let audio;
 let img;
 let frame = 0;
 let height = 600;
+let initialPlay = true;
 let snowflakes = [];
 
 const SNOW_THRESHOLD = 50;
@@ -16,6 +17,13 @@ function setup() {
     width = document.getElementById('canvasbox').offsetWidth;
     audio = document.getElementById("song");
     createCanvas(width, height);
+
+    // prevent keyboard from scrolling
+    window.addEventListener("keydown", function(e) {
+        if(["Space", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+            e.preventDefault();
+        }
+    }, false);
 
     systems = [];
 }
@@ -78,7 +86,11 @@ function keyPressed() {
             snowflakes.push(new snowflake());
         }
     } else if (keyCode === 32) {
-        if (audio.paused) {
+        if (initialPlay) {
+            audio.currentTime=41;
+            audio.play();
+            initialPlay = !initialPlay;
+        } else if (audio.paused) {
             audio.play();
         } else {
             audio.pause();
